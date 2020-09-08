@@ -1,8 +1,15 @@
+#!/usr/bin/python3
+
+# usage : python3 paths.py "path"
+# example : python3 paths.py root/home
+# CTRL + C to exit
+
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
-import os
+import os,sys
 import json
 import time
+
 
 class MyHandler(FileSystemEventHandler):
     
@@ -32,7 +39,7 @@ class MyHandler(FileSystemEventHandler):
                 com_dst = compress + "/" + filename
                 os.rename(src, com_dst)
 
-folder_to_track = '/Users/kkhh/Documents/orgtest'
+folder_to_track = sys.argv[1]
 # folders
 image = folder_to_track+'/images'
 documents= folder_to_track+'/documents'

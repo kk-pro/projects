@@ -21,7 +21,7 @@ def price_check():
     price = soup.find(id="priceblock_ourprice").get_text(strip=True)
     converted_price = float(price[4:7])
     if converted_price < 117:
-        send_webhook(event)
+        send_webhook(event,key)
         fin = False
 
 

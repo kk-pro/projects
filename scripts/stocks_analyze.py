@@ -1,7 +1,5 @@
 import requests, subprocess, os, json, sys
 
-symbol = "SUNW"
-
 links = []
 data = {"totalDebt":[],"interestIncome":[],"totalRevenue":[],"MarketCap":[]}
 def get_url(symbol):
@@ -17,7 +15,7 @@ def get_url(symbol):
             
     
 
-def get_data():
+def get_data(symbol):
     get_url(symbol)
     for url in links:
         
@@ -69,8 +67,8 @@ def get_data():
 
                 data["MarketCap"] = float(MarketCap)
     
-def check_stock():
-    get_data()
+def check_stock(symbol):
+    get_data(symbol)
     #print(data)
     if data['totalRevenue'] == 0:
         if (data['totalDebt'] / data['MarketCap']) * 100 <= 30:
@@ -83,4 +81,4 @@ def check_stock():
         else:
             print("HARAM")
 
-check_stock()
+check_stock("AAPL")

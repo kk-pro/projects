@@ -1,5 +1,6 @@
 import requests, subprocess, os, json, sys
 
+
 links = []
 data = {"totalDebt":[],"interestIncome":[],"totalRevenue":[],"MarketCap":[]}
 def get_url(symbol):
@@ -10,7 +11,7 @@ def get_url(symbol):
     print('Checking %s ....'% symbol)
     for v in data_type.values():
         dtype = v
-        url = "https://www.alphavantage.co/query?function=" + dtype + "&symbol=" + symbol + "&apikey=Y96I40KW7W2KQ8W7"
+        url = "https://www.alphavantage.co/query?function=" + dtype + "&symbol=" + symbol + "&apikey=XXXXXXXX"
         links.append(url)
             
     
@@ -48,6 +49,7 @@ def get_data(symbol):
 
             elif "BALANCE_SHEET" in url:
                 quarterlyReports = json.loads(response.text)["quarterlyReports"]
+                print(quarterlyReports)
                 longTermDebt = quarterlyReports[0]["longTermDebt"]
                 shortTermDebt = quarterlyReports[0]["shortTermDebt"]
                 try:
@@ -59,10 +61,11 @@ def get_data(symbol):
                         print("[+] There are no info about long term debt")
                         sys.exit()
                     if shortTermDebt == 'None':
-                        print('[+] There are no info about long term debt')
+                        print('[+] There are no info about short term debt')
                         sys.exit()
             elif "OVERVIEW" in url:
                 quarterlyReports = json.loads(response.text)
+                print(quarterlyReports)
                 MarketCap = quarterlyReports["MarketCapitalization"]
 
                 data["MarketCap"] = float(MarketCap)

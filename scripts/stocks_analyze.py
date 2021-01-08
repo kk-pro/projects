@@ -9,8 +9,8 @@ def get_url(symbol):
     'balance':"BALANCE_SHEET",
     }
     print('Checking %s ....'% symbol)
-    for v in data_type.values():
-        dtype = v
+    for dtype in data_type.values():
+         
         url = "https://www.alphavantage.co/query?function=" + dtype + "&symbol=" + symbol + "&apikey=XXXXXXXX"
         links.append(url)
             

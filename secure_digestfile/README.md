@@ -12,7 +12,7 @@ first, we need the Blockchain up and running
 Install the dependencies,
 
 ```sh
-$ cd python_blockchain_app
+$ cd blockchain_app
 $ pip install -r requirements.txt
 ```
 
